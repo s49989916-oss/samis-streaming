@@ -1,0 +1,23 @@
+workflows:
+  android-debug:
+    name: Sami's Streaming Android APK
+    instance_type: linux_x2
+    max_build_duration: 60
+    environment:
+      node: 22
+      java: 17
+    scripts:
+      - name: Install dependencies
+        working_directory: samis-streaming
+        script: npm ci
+      - name: Build web app
+        working_directory: samis-streaming
+        script: npm run build
+      - name: Sync Capacitor Android
+        working_directory: samis-streaming
+        script: npx cap sync android
+      - name: Build APK
+        working_directory: samis-streaming/android
+        script: ./gradlew assembleDebug
+    artifacts:
+      - samis-streaming/android/app/build/outputs/apk/debug/*.apk
