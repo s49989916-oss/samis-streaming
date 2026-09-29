@@ -1,0 +1,8 @@
+{
+  "appId": "com.sami.streaming",
+  "appName": "Sami's Streaming",
+  "webDir": "dist",
+  "android": { "allowMixedContent": true },
+  "server": { "androidScheme": "http", "cleartext": true },
+  "plugins": { "SplashScreen": { "backgroundColor": "#000000", "showSpinner": false } }
+}
