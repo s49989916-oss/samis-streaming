@@ -18,6 +18,6 @@ workflows:
         script: npx cap sync android
       - name: Build APK
         working_directory: samis-streaming/android
-        script: ./gradlew assembleDebug
+        script: chmod +x gradlew && ./gradlew assembleDebug
     artifacts:
       - samis-streaming/android/app/build/outputs/apk/debug/*.apk
